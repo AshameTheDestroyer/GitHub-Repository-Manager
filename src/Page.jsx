@@ -5,7 +5,7 @@ import './index.scss';
 import './main.scss';
 import './Page.scss';
 import root from './main';
-import { Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 const INITIAL_STATE = {
     isNaveBarShown: true,
