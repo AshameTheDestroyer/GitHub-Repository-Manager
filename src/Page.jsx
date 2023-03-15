@@ -20,7 +20,7 @@ function Page() {
     const [state, setState] = useState(INITIAL_STATE);
 
     return (
-        <BrowserRouter basename={window.location.pathname || ''}>
+        <BrowserRouter basename="Page">
             <stateContext.Provider value={{ state, setState }}>
                 <section>
 
