@@ -5,6 +5,7 @@ import './index.scss';
 import './main.scss';
 import './Page.scss';
 import root from './main';
+import { Route } from 'react-router-dom';
 
 const INITIAL_STATE = {
     isNaveBarShown: true,
@@ -21,8 +22,15 @@ function Page() {
     return (
         <stateContext.Provider value={{ state, setState }}>
             <section>
-                <Header title="GitHub Repository Manager" />
-                <MainSection />
+
+                <Route path='/Header/Header'>
+                    <Header title="GitHub Repository Manager" />
+                </Route>
+
+                <Route path='MainSection/MainSection'>
+                    <MainSection />
+                </Route>
+
             </section>
         </stateContext.Provider>
     );

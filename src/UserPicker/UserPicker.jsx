@@ -9,6 +9,7 @@ import "./UserPicker.scss";
 
 import failed_icon from "../images/Icons/offline_cloud.png";
 import unfound_icon from "../images/Icons/warning.png";
+import { Route } from "react-router-dom";
 
 /** A set of all the possible fetching states. */
 const FETCHING_STATE = {
@@ -30,10 +31,25 @@ export default function UserPicker() {
     /** Renders the icon of the current fetching state. */
     function CurrentFetchingStateIcon() {
         switch (fetchingState) {
-            default: case FETCHING_STATE.Static: return <></>;
-            case FETCHING_STATE.Loading: return <LoadingIcon />;
-            case FETCHING_STATE.Failed: return <Icon iconURL={failed_icon} />
-            case FETCHING_STATE.Unfound: return <Icon iconURL={unfound_icon} />
+            case FETCHING_STATE.Loading: return (
+                <Route path="../LoadingIcon/LoadingIcon">
+                    <LoadingIcon />
+                </Route>
+            );
+
+            case FETCHING_STATE.Failed: return (
+                <Route path="../Icon/Icon">
+                    <Icon iconURL={failed_icon} />
+                </Route>
+            );
+
+            case FETCHING_STATE.Unfound: return (
+                <Route path="../Icon/Icon">
+                    <Icon iconURL={unfound_icon} />
+                </Route>
+            );
+
+            default: case FETCHING_STATE.Static: return (<></>);
         }
     }
 
@@ -72,9 +88,12 @@ export default function UserPicker() {
     function AboutDisplayer() {
         return (
             <div>
-                <Icon size="15rem" iconURL={user?.photoURL ?? ""}>
-                    <CurrentFetchingStateIcon />
-                </Icon>
+                <Route path="../Icon/Icon">
+                    <Icon size="15rem" iconURL={user?.photoURL ?? ""}>
+                        <CurrentFetchingStateIcon />
+                    </Icon>
+                </Route>
+
                 <h1>{user?.username || "Anonymous User"}</h1>
                 <h3>{user?.nickname || "Nickname"}</h3>
                 <p className="break">{user?.biography || "No furthur information to be shown."}</p>
@@ -117,12 +136,14 @@ export default function UserPicker() {
             <DateDisplayer />
 
             <div>
-                <TextBox placeholder="Username"
-                    text={typedUsername}
-                    setText={setTypedUsername}
-                    pattern="[a-zA-Z_]|[a-zA-Z_][a-zA-Z0-9_-]+"
-                    onChange={e => setIsTypedUsernameValid(e.target.validity.valid)}
-                />
+                <Route path="../TextBox/TextBox">
+                    <TextBox placeholder="Username"
+                        text={typedUsername}
+                        setText={setTypedUsername}
+                        pattern="[a-zA-Z_]|[a-zA-Z_][a-zA-Z0-9_-]+"
+                        onChange={e => setIsTypedUsernameValid(e.target.validity.valid)}
+                    />
+                </Route>
 
                 <button onClick={async _ => {
                     setFetchingState(_ => FETCHING_STATE.Loading);
