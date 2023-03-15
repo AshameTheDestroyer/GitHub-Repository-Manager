@@ -72,12 +72,12 @@ export default function UserPicker() {
     function AboutDisplayer() {
         return (
             <div>
-                <Icon size="15rem" iconURL={user.photoURL}>
+                <Icon size="15rem" iconURL={user?.photoURL ?? ""}>
                     <CurrentFetchingStateIcon />
                 </Icon>
-                <h1>{user.username || "Anonymous User"}</h1>
-                <h3>{user.nickname || "Nickname"}</h3>
-                <p className="break">{user.biography || "No furthur information to be shown."}</p>
+                <h1>{user?.username || "Anonymous User"}</h1>
+                <h3>{user?.nickname || "Nickname"}</h3>
+                <p className="break">{user?.biography || "No furthur information to be shown."}</p>
             </div>
         );
     }
@@ -88,11 +88,11 @@ export default function UserPicker() {
             <div id="following-displayer" className="break">
                 <div className="displayer">
                     <q>Followers</q>
-                    <p>{user.followers?.length ?? "0"}</p>
+                    <p>{user?.followers?.length ?? "0"}</p>
                 </div>
                 <div className="displayer">
                     <q>Followees</q>
-                    <p>{user.followees?.length ?? "0"}</p>
+                    <p>{user?.followees?.length ?? "0"}</p>
                 </div>
             </div>
         );
@@ -103,7 +103,7 @@ export default function UserPicker() {
         return (
             <div id="date-displayer" className="displayer">
                 <q>Creation Date</q>
-                <p>{user.creationDate?.toUTCString() ?? "Invalid Date"}</p>
+                <p>{user?.creationDate?.toUTCString() ?? "Invalid Date"}</p>
             </div>
         );
     }
@@ -120,7 +120,7 @@ export default function UserPicker() {
                 <TextBox placeholder="Username"
                     text={typedUsername}
                     setText={setTypedUsername}
-                    pattern="[a-zA-Z_]|[a-zA-Z_][a-zA-Z0-9_]+"
+                    pattern="[a-zA-Z_]|[a-zA-Z_][a-zA-Z0-9_-]+"
                     onChange={e => setIsTypedUsernameValid(e.target.validity.valid)}
                 />
 
