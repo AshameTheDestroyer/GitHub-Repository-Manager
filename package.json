@@ -1,7 +1,7 @@
 {
+  "homepage": "https://ashamethedestroyer.github.io/GitHub-Repository-Manager/",
   "name": "github-repository-manager",
   "private": true,
-  "homepage": "https://AshameTheDestroyer.github.io/GitHub-Repository-Manager",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
