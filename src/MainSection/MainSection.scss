@@ -1,0 +1,16 @@
+@use "../index.scss";
+@use "../Header/Header.scss";
+
+#main-section {
+    $padding: 3rem;
+
+    width: calc(100% - $padding * 2);
+    height: calc(100vh - $padding * 2 - Header.$header-total-height);
+
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+
+    padding: $padding;
+}

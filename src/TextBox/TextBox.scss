@@ -1,0 +1,51 @@
+@use "../index.scss";
+
+.textbox {
+    --input-colour: white;
+
+    position: relative;
+
+    margin: 2rem 0 0 0;
+
+    label {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(1rem, -50%);
+
+        color: white;
+
+        border-radius: 100vh;
+
+        padding: 0.5rem;
+
+        transition:
+            500ms top ease,
+            500ms transform ease,
+            500ms padding ease,
+            500ms color ease,
+            500ms background-color ease;
+
+        pointer-events: none;
+    }
+
+    input {
+        color: var(--input-colour);
+        border-color: var(--input-colour);
+    }
+
+    input:is(:focus, :not(:placeholder-shown))~label {
+        top: 0;
+        transform: translate(1rem, calc(-50% - 0.25rem));
+
+        padding: 0.5rem 1.5rem;
+
+        color: index.$background-colour;
+        background-color: var(--input-colour);
+    }
+
+    input:invalid,
+    input:invalid~label {
+        --input-colour: red;
+    }
+}

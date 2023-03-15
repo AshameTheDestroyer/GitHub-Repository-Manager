@@ -1,0 +1,101 @@
+@use "./index.scss";
+
+body {
+    $padding: 3rem;
+
+    min-height: calc(100vh - $padding * 2);
+
+    font-size: 3rem;
+
+    background-image: index.$background-image;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    place-content: center;
+    place-items: center;
+
+    text-shadow: index.$box-shadow;
+
+    padding: $padding;
+
+    &::before {
+        $size: 100%;
+
+        content: "";
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: $size;
+        height: $size;
+
+        background-image: radial-gradient(transparent, black 100%);
+        backdrop-filter: blur(0.5rem);
+
+        z-index: -1;
+    }
+}
+
+main {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    place-content: center;
+    place-items: center center;
+    gap: 4rem;
+
+    :nth-child(n + 3) {
+        grid-column: 1 / 3;
+    }
+
+    .icon {
+        filter: drop-shadow(index.$box-shadow);
+
+        transition: 500ms transform ease;
+
+        &:is(:hover, :focus) {
+            transform: scale(1.1);
+        }
+    }
+}
+
+button {
+    position: relative;
+
+    border-radius: 100vh;
+
+    padding: 2rem;
+
+    transition: 500ms transform ease;
+
+    &:not(.icon, .hamburger-button) {
+        box-shadow: index.$box-shadow;
+    }
+
+    &:not(:disabled):is(:hover, :focus) {
+        transform: scale(1.1);
+    }
+
+    &:disabled {
+        filter: contrast(80%) brightness(80%);
+        cursor: auto;
+    }
+
+    a {
+        $size: 100%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: $size;
+        height: $size;
+
+        display: flex;
+        place-content: center;
+        place-items: center;
+    }
+}

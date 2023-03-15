@@ -1,0 +1,78 @@
+.loading-icon {
+    --size: 4rem;
+    --border-thickness: calc(var(--size) / 8);
+    --colour: white;
+
+    $animation-duration: 1500ms;
+
+    width: var(--size);
+    height: var(--size);
+
+    animation-name: rotation;
+    animation-duration: $animation-duration;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(1, 1, 1, 1);
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    place-content: center;
+    place-items: center;
+
+    cursor: wait;
+
+    @keyframes rotation {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    div {
+        --size: 100%;
+
+        width: var(--size);
+        height: var(--size);
+
+        grid-column: 1;
+        grid-row: 1;
+
+        border-radius: 100vh;
+    }
+
+    div:nth-child(2n) {
+        border: var(--border-thickness) solid transparent;
+    }
+
+    div:nth-child(2n + 1) {
+        border: var(--border-thickness) solid transparent;
+    }
+
+    div:nth-child(1),
+    div:nth-child(2) {
+        --size: 50%;
+    }
+
+    div:nth-child(1) {
+        border-top: var(--border-thickness) solid var(--colour);
+        border-right: var(--border-thickness) solid var(--colour);
+    }
+
+    div:nth-child(2) {
+        border-bottom: var(--border-thickness) dotted var(--colour);
+        border-left: var(--border-thickness) dotted var(--colour);
+    }
+
+    div:nth-child(3) {
+        border-bottom: var(--border-thickness) solid var(--colour);
+        border-left: var(--border-thickness) solid var(--colour);
+    }
+
+    div:nth-child(4) {
+        border-top: var(--border-thickness) dotted var(--colour);
+        border-right: var(--border-thickness) dotted var(--colour);
+    }
+}

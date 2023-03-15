@@ -1,0 +1,73 @@
+@use "../index.scss";
+@use "../Header/Header.scss";
+
+#user-picker {
+    $padding: 2rem;
+    $width: 30rem;
+
+    --position-x: 0%;
+
+    position: absolute;
+    top: Header.$header-total-height;
+    left: 0;
+    transform: translateX(var(--position-x));
+
+    width: $width;
+    height: calc(100vh - $padding * 2 - Header.$header-total-height);
+
+    display: grid;
+    gap: 1rem;
+
+    background-color: index.$background-darker-colour;
+
+    padding: $padding;
+
+    transition:
+        500ms width ease,
+        500ms transform ease;
+
+    overflow: auto;
+
+    z-index: 1;
+
+    @media (width < calc($width * 1.5)) {
+        width: calc(100% - $padding * 2);
+    }
+
+    .icon {
+        background-color: index.$half-transparent;
+
+        border: 0.2rem solid index.$fore-colour;
+    }
+
+    h1,
+    h3 {
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    div {
+        display: grid;
+        place-content: stretch;
+        place-items: center;
+        gap: 1rem;
+    }
+
+    .icon>.icon {
+        border: none;
+        background-color: transparent;
+    }
+
+
+    #following-displayer {
+        grid-template-columns: repeat(2, 1fr);
+        place-content: center;
+        place-items: center;
+    }
+
+    #date-displayer {
+        display: flex;
+        place-content: center;
+        place-items: center;
+    }
+}

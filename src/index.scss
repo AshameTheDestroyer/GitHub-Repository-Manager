@@ -1,0 +1,86 @@
+$main-colour: #00D647;
+$background-colour: #222;
+$background-darker-colour: #111;
+$fore-colour: #FFF;
+$half-transparent: #0000007C;
+
+$wallpaper-count: 5;
+$background-image: url("src/Images/Wallpapers/wallpaper_" + random($wallpaper-count) + ".jpeg");
+
+$box-shadow: 1rem 1rem 0.3rem $half-transparent;
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: Consolas;
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    color: $fore-colour;
+    background-color: $background-colour;
+}
+
+input,
+button {
+    font-family: inherit;
+    font-size: inherit;
+
+    color: inherit;
+    background-color: $half-transparent;
+
+    border: 0.1rem solid $fore-colour;
+    border-radius: 1vh;
+
+    padding: 1rem;
+}
+
+button {
+    cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+q::before,
+q::after {
+    content: "";
+}
+
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $half-transparent;
+
+    outline: 0.3rem solid $half-transparent;
+    border-radius: 100vh;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $main-colour;
+
+    border: 0.2rem solid $half-transparent;
+    border-radius: 100vh;
+}

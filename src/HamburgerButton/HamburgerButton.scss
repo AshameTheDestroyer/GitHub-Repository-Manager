@@ -1,0 +1,32 @@
+@use "../index.scss";
+
+.hamburger-button {
+    $size: 3rem;
+
+    width: $size;
+    height: $size;
+
+    background-color: transparent;
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    place-content: center;
+    place-items: center;
+    gap: 0.6rem;
+
+    border: none;
+
+    padding: initial;
+
+    div {
+        $size: 100%;
+
+        width: $size;
+        height: $size;
+
+        background-color: index.$fore-colour;
+
+        border-radius: 100vh;
+    }
+}

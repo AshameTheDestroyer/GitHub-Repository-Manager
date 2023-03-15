@@ -1,0 +1,37 @@
+@use "../index.scss";
+
+$header-height: 5rem;
+$header-padding: 1.5rem;
+$header-total-height: calc($header-height + $header-padding * 2);
+
+header {
+    font-size: x-large;
+
+    position: sticky;
+    top: 0;
+
+    height: $header-height;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    place-content: center;
+    place-items: center end;
+    place-self: stretch;
+
+    background-color: index.$background-colour;
+
+    padding: $header-padding;
+
+    z-index: 1;
+
+    &>div {
+        display: flex;
+        place-content: center;
+        place-items: center;
+        gap: 1rem;
+    }
+
+    .icon::after {
+        filter: brightness(20%);
+    }
+}

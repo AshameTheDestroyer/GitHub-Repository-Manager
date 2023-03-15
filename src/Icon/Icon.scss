@@ -1,0 +1,43 @@
+.icon {
+    --size: 5rem;
+    --url: "";
+    --background-colour: transparent;
+
+    position: relative;
+
+    width: var(--size);
+    height: var(--size);
+
+    background-color: var(--background-colour);
+
+    border-radius: 100vh;
+
+    isolation: isolate;
+
+    overflow: hidden;
+
+    &::after {
+        --size: 100%;
+
+        content: "";
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: var(--size);
+        height: var(--size);
+
+        background-image: var(--url);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+
+        z-index: -1;
+    }
+
+    &:is(button) {
+        border: none;
+    }
+}
