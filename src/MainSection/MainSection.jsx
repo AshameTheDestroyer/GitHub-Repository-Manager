@@ -1,5 +1,4 @@
 import React, { useState, useEffect, createContext } from "react";
-import { Route } from "react-router-dom";
 import RepositoryDisplayer from "../RepositoryDisplayer/RepositoryDisplayer";
 import UserPicker from "../UserPicker/UserPicker";
 import "./MainSection.scss";
@@ -28,15 +27,8 @@ export default function MainSection() {
     return (
         <div id="main-section">
             <userContext.Provider value={{ user, setUser }}>
-
-                <Route path="../UserPicker/UserPicker">
-                    <UserPicker />
-                </Route>
-
-                <Route path="../RepositoryDisplayer/RepositoryDisplayer">
-                    <RepositoryDisplayer />
-                </Route>
-
+                <UserPicker />
+                <RepositoryDisplayer />
             </userContext.Provider>
         </div>
     );

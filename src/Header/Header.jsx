@@ -5,7 +5,6 @@ import Icon from "../Icon/Icon";
 import "./Header.scss";
 
 import github_icon from "../images/Icons/github_small.png";
-import { Route } from "react-router-dom";
 
 /** The header of the website.
  * @param {Object} properties The properties of the element.
@@ -17,16 +16,10 @@ export default function Header({ title }) {
 
     return (
         <header>
-            <Route path="../HamburgerButton/HamburgerButton">
-                <HamburgerButton onClick={_ => setState({ ...state, isNaveBarShown: !state.isNaveBarShown })} />
-            </Route>
-
+            <HamburgerButton onClick={_ => setState({ ...state, isNaveBarShown: !state.isNaveBarShown })} />
             <div>
                 <p>{title}</p>
-
-                <Route path="../Icon/Icon">
-                    <Icon colour="white" iconURL={github_icon} size="5rem" isButton={true} link="https://www.github.com/" />
-                </Route>
+                <Icon colour="white" iconURL={github_icon} size="5rem" isButton={true} link="https://www.github.com/" />
             </div>
         </header>
     );

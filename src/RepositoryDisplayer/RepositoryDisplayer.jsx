@@ -144,9 +144,7 @@ function Repository({
                     <a href={URL} target="_blank"></a>
                 </button>
                 <div className="displayer">
-                    <Route path="../Icon/Icon">
-                        <Icon iconURL={eye_icon} size="2rem" />
-                    </Route>
+                    <Icon iconURL={eye_icon} size="2rem" />
                     <p>{watcherCount ?? "0"}</p>
                 </div>
             </div>
