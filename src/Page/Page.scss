@@ -1,28 +1,24 @@
-@use "./index.scss";
+@use "../index.scss";
 
-body {
-    background-image: index.$background-image;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
+#page {
+    font-size: 1.6rem;
 
-    display: block;
-
-    text-shadow: none;
-
-    padding: 0;
-}
-
-button {
-    box-shadow: none !important;
-}
-
-section {
-    min-height: 100vh;
+    width: 100vw;
 
     display: grid;
     grid-template-rows: auto 1fr;
+
+    text-shadow: none;
+
+    button:not(.hamburger-button) {
+        box-shadow: none !important;
+
+        padding: 1.2rem;
+
+        border-radius: 3vh;
+    }
 }
+
 
 .displayer {
     display: grid;
@@ -39,6 +35,7 @@ section {
 
     q {
         font-weight: bold;
+        text-align: center;
 
         background-color: index.$main-colour;
 

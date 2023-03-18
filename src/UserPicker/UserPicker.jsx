@@ -3,7 +3,7 @@ import { GetUserData } from "../Fetcher/Fetcher";
 import Icon from "../Icon/Icon";
 import LoadingIcon from "../LoadingIcon/LoadingIcon";
 import { userContext } from "../MainSection/MainSection";
-import { stateContext } from "../Page";
+import { stateContext } from "../Page/Page";
 import TextBox from "../TextBox/TextBox";
 import "./UserPicker.scss";
 
@@ -32,8 +32,8 @@ export default function UserPicker() {
         switch (fetchingState) {
             default: case FETCHING_STATE.Static: return <></>;
             case FETCHING_STATE.Loading: return <LoadingIcon />;
-            case FETCHING_STATE.Failed: return <Icon iconURL={failed_icon} />
-            case FETCHING_STATE.Unfound: return <Icon iconURL={unfound_icon} />
+            case FETCHING_STATE.Failed: return <Icon iconURL={failed_icon} />;
+            case FETCHING_STATE.Unfound: return <Icon iconURL={unfound_icon} />;
         }
     }
 

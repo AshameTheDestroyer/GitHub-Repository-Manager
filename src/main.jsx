@@ -1,23 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Icon from './Icon/icon';
-import './index.scss';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import Icon from './Icon/Icon';
+import Page from './Page/Page';
 import './main.scss';
+import './index.scss';
 
 import github_icon from "./images/Icons/github_large.png";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <main>
-        <Icon iconURL={github_icon} size="25vmin" isButton={true} link="https://www.github.com/" />
-        <h1>GitHub Repository Manager</h1>
-        <p>Review all information about your GitHub account!</p>
-        <button>
-            <p>Get Started</p>
-            <a href="../Page.html"></a>
-        </button>
-    </main>
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <BrowserRouter basename={window.location.pathname || ""}>
+        <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="page" element={<Page />} />
+        </Routes>
+    </BrowserRouter>
 );
 
-export default root;
+function Main() {
+    return (
+        <main>
+            <div>
+                <Icon iconURL={github_icon} size="30vmin" isButton={true} link="https://www.github.com/" />
+                <h1>GitHub Repository Manager</h1>
+            </div>
+            <p>Review all information about your GitHub account!</p>
+            <button>
+                <p>Get Started</p>
+                <Link to="page"></Link>
+            </button>
+        </main>
+    );
+}

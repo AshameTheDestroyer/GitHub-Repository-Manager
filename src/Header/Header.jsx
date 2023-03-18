@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
-import { stateContext } from "../Page";
+import { stateContext } from "../Page/Page";
 import Icon from "../Icon/Icon";
 import "./Header.scss";
 
